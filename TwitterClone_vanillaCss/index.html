@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twitter Clone</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+</head>
+<script>
+    document.querySelectorAll('.feed_header .tab').forEach(tab => {
+        tab.addEventListener('click', () => {
+            document.querySelectorAll('.feed_header .tab').forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            // TODO: switch feed content here when needed
+        });
+    });
+</script>
+
+<body>
+    <!-- Sidebar starts -->
+    <div class="sidebar">
+        <i class="fab fa-x-twitter"></i>
+
+        <div class="sidebarOption active">
+            <span class="material-symbols-outlined">
+                home_filled
+            </span>
+            <h2>Home</h2>
+        </div>
+
+        <div class="sidebarOption">
+            <span class="material-symbols-outlined">
+                search
+            </span>
+            <h2>Explore</h2>
+        </div>
+
+        <div class="sidebarOption">
+            <span class="material-symbols-outlined">
+                notifications
+            </span>
+            <h2>Notifications</h2>
+        </div>
+
+        <div class="sidebarOption">
+            <span class="material-symbols-outlined">
+                mail
+            </span>
+            <h2>Messages</h2>
+        </div>
+
+        <div class="sidebarOption">
+            <span class="material-symbols-outlined">
+                list
+            </span>
+            <h2>Grok</h2>
+        </div>
+
+        <div class="sidebarOption">
+            <span class="material-symbols-outlined">
+                Bookmark_border
+            </span>
+            <h2>Bookmarks</h2>
+        </div>
+
+        <div class="sidebarOption">
+            <span class="material-symbols-outlined">
+                people
+            </span>
+            <h2>Communities</h2>
+        </div>
+
+        <div class="sidebarOption">
+            <span class="material-symbols-outlined">
+                paid
+            </span>
+            <h2>Premium</h2>
+        </div>
+
+        <div class="sidebarOption">
+            <span class="material-symbols-outlined">
+                perm_identity
+            </span>
+            <h2>Profile</h2>
+        </div>
+
+        <div class="sidebarOption">
+            <span class="material-symbols-outlined">
+                more_horiz
+            </span>
+            <h2>More</h2>
+        </div>
+        <button class="tweet_button">Post</button>
+    </div>
+    <!-- Sidebar ends -->
+
+    <!-- Feed starts -->
+    <div class="feed">
+        <div class="feed_header">
+            <h2 class="tab active">For you</h2>
+            <h2 class="tab">Following</h2>
+        </div>
+
+        <!-- Tweetbox starts -->
+
+        <div class="tweet_box">
+            <form>
+                <div class="tweet_box_input">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHmt7zdlMJiuoZRj8RAe3AT5MXbIuCD4KYiQ&s"
+                        alt="Profile Picture">
+                    <input type="text" placeholder="What's happening?">
+                </div>
+                <div class="tweet_box_footer">
+                    <div class="tweet_box_icons">
+                        <i class="far fa-image"></i>
+                        <i class="far fa-chart-bar"></i>
+                        <i class="far fa-smile"></i>
+                        <i class="far fa-calendar"></i>
+                        <i class="far fa-file"></i>
+
+                    </div>
+                    <div class="tweet_box_postButton">
+                    <button class="tweet_button">Post</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- Tweetbox ends -->
+
+        <!-- Post starts -->
+        <div class="post">
+            <div class="post_avatar">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHmt7zdlMJiuoZRj8RAe3AT5MXbIuCD4KYiQ&s"
+                    alt="Profile Picture">
+            </div>
+            <div class="post_body">
+                <div class="post_header">
+                    <div class="post_headerText">
+                        <h3>
+                            Jayesh Baranwal
+                            <span class="post_headerSpecial">
+                                <img class="verified_badge" src="https://img.icons8.com/color/48/verified-badge.png"
+                                    alt="verified-badge" />@jayeshbCode_ · 2h
+                            </span>
+                        </h3>
+                    </div>
+                    <div class="post_headerDescription">
+                        <p>Hi, this is my twitter clone. Thank you for Visiting :) </p>
+                    </div>
+                </div>
+                <img src="https://www.kirsle.net/creativity/articles/tabs-v-spaces.png" alt="Post Image">
+                <div class="post_footer">
+                    <div class="post_footer_left">
+                        <i class="far fa-comment"></i>
+                        <i class="fas fa-retweet"></i>
+                        <i class="far fa-heart"></i>
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <div class="post_footer_right">
+
+                        <i class="far fa-bookmark"></i>
+                        <i class="fas fa-share"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Post ends -->
+    </div>
+    <!-- Feed ends -->
+</body>
+
+</html>

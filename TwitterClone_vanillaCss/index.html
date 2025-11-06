@@ -10,6 +10,10 @@
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+    <head>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </head>
 </head>
 <script>
     document.querySelectorAll('.feed_header .tab').forEach(tab => {
@@ -24,78 +28,89 @@
 <body>
     <!-- Sidebar starts -->
     <div class="sidebar">
-        <i class="fab fa-x-twitter"></i>
+        <div class="sidebar_main">
 
-        <div class="sidebarOption active">
-            <span class="material-symbols-outlined">
-                home_filled
-            </span>
-            <h2>Home</h2>
-        </div>
+            <i class="fab fa-x-twitter"></i>
 
-        <div class="sidebarOption">
-            <span class="material-symbols-outlined">
-                search
-            </span>
-            <h2>Explore</h2>
-        </div>
+            <div class="sidebarOption active">
+                <span class="material-symbols-outlined">
+                    home_filled
+                </span>
+                <h2>Home</h2>
+            </div>
 
-        <div class="sidebarOption">
-            <span class="material-symbols-outlined">
-                notifications
-            </span>
-            <h2>Notifications</h2>
-        </div>
+            <div class="sidebarOption">
+                <span class="material-symbols-outlined">
+                    search
+                </span>
+                <h2>Explore</h2>
+            </div>
 
-        <div class="sidebarOption">
-            <span class="material-symbols-outlined">
-                mail
-            </span>
-            <h2>Messages</h2>
-        </div>
+            <div class="sidebarOption">
+                <span class="material-symbols-outlined">
+                    notifications
+                </span>
+                <h2>Notifications</h2>
+            </div>
 
-        <div class="sidebarOption">
-            <span class="material-symbols-outlined">
-                list
-            </span>
-            <h2>Grok</h2>
-        </div>
+            <div class="sidebarOption">
+                <span class="material-symbols-outlined">
+                    mail
+                </span>
+                <h2>Messages</h2>
+            </div>
 
-        <div class="sidebarOption">
-            <span class="material-symbols-outlined">
-                Bookmark_border
-            </span>
-            <h2>Bookmarks</h2>
-        </div>
+            <div class="sidebarOption">
+                <span class="material-symbols-outlined">
+                    list
+                </span>
+                <h2>Grok</h2>
+            </div>
 
-        <div class="sidebarOption">
-            <span class="material-symbols-outlined">
-                people
-            </span>
-            <h2>Communities</h2>
-        </div>
+            <div class="sidebarOption">
+                <span class="material-symbols-outlined">
+                    Bookmark_border
+                </span>
+                <h2>Bookmarks</h2>
+            </div>
 
-        <div class="sidebarOption">
-            <span class="material-symbols-outlined">
-                paid
-            </span>
-            <h2>Premium</h2>
-        </div>
+            <div class="sidebarOption">
+                <span class="material-symbols-outlined">
+                    people
+                </span>
+                <h2>Communities</h2>
+            </div>
 
-        <div class="sidebarOption">
-            <span class="material-symbols-outlined">
-                perm_identity
-            </span>
-            <h2>Profile</h2>
-        </div>
+            <div class="sidebarOption">
+                <span class="material-symbols-outlined">
+                    paid
+                </span>
+                <h2>Premium</h2>
+            </div>
 
-        <div class="sidebarOption">
-            <span class="material-symbols-outlined">
-                more_horiz
-            </span>
-            <h2>More</h2>
+            <div class="sidebarOption">
+                <span class="material-symbols-outlined">
+                    perm_identity
+                </span>
+                <h2>Profile</h2>
+            </div>
+
+            <div class="sidebarOption">
+                <span class="material-symbols-outlined">
+                    more_horiz
+                </span>
+                <h2>More</h2>
+            </div>
+            <button class="post_button">Post</button>
         </div>
-        <button class="tweet_button">Post</button>
+        <div class="sidebarProfile">
+            <img src="https://i.pinimg.com/736x/56/ef/1d/56ef1d2b1b6bbfdc24a3742baaebd559.jpg" alt="avatar">
+            <div class="profile_names">
+                <span class="name">Jayesh Baranwal</span>
+                <span class="handle">@jayeshb_Code</span>
+            </div>
+            <i class="fas fa-ellipsis-h more" aria-hidden="true"></i>
+        </div>
     </div>
     <!-- Sidebar ends -->
 
@@ -108,15 +123,15 @@
 
         <!-- Tweetbox starts -->
 
-        <div class="tweet_box">
+        <div class="post_box">
             <form>
-                <div class="tweet_box_input">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHmt7zdlMJiuoZRj8RAe3AT5MXbIuCD4KYiQ&s"
+                <div class="post_box_input">
+                    <img src="https://i.pinimg.com/736x/56/ef/1d/56ef1d2b1b6bbfdc24a3742baaebd559.jpg"
                         alt="Profile Picture">
                     <input type="text" placeholder="What's happening?">
                 </div>
-                <div class="tweet_box_footer">
-                    <div class="tweet_box_icons">
+                <div class="post_box_footer">
+                    <div class="post_box_icons">
                         <i class="far fa-image"></i>
                         <i class="far fa-chart-bar"></i>
                         <i class="far fa-smile"></i>
@@ -124,8 +139,8 @@
                         <i class="far fa-file"></i>
 
                     </div>
-                    <div class="tweet_box_postButton">
-                        <button class="tweet_button">Post</button>
+                    <div class="post_box_postButton">
+                        <button class="post_button">Post</button>
                     </div>
                 </div>
             </form>
@@ -133,10 +148,9 @@
         <!-- Tweetbox ends -->
 
         <!-- Post starts -->
-        <!-- first post -->
         <div class="post">
             <div class="post_avatar">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHmt7zdlMJiuoZRj8RAe3AT5MXbIuCD4KYiQ&s"
+                <img src="https://i.pinimg.com/736x/56/ef/1d/56ef1d2b1b6bbfdc24a3742baaebd559.jpg"
                     alt="Profile Picture">
             </div>
             <div class="post_body">
@@ -171,11 +185,10 @@
             </div>
 
         </div>
-        <!-- first Post ends -->
-        <!-- second post starts -->
+        <!-- Post ends -->
         <div class="post">
             <div class="post_avatar">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHmt7zdlMJiuoZRj8RAe3AT5MXbIuCD4KYiQ&s"
+                <img src="https://i.pinimg.com/736x/56/ef/1d/56ef1d2b1b6bbfdc24a3742baaebd559.jpg"
                     alt="Profile Picture">
             </div>
             <div class="post_body">
@@ -209,11 +222,135 @@
                 </div>
             </div>
         </div>
-        <!-- second post ends -->
-        <!-- post ends -->
-        
+        <div class="post">
+            <div class="post_avatar">
+                <img src="https://i.pinimg.com/736x/56/ef/1d/56ef1d2b1b6bbfdc24a3742baaebd559.jpg"
+                    alt="Profile Picture">
+            </div>
+            <div class="post_body">
+                <div class="post_header">
+                    <div class="post_headerText">
+                        <h3>
+                            Jayesh Baranwal
+                            <span class="post_headerSpecial">
+                                <img class="verified_badge" src="https://img.icons8.com/color/48/verified-badge.png"
+                                    alt="verified-badge" />@jayeshbCode_ · 2h
+                            </span>
+                        </h3>
+                    </div>
+                    <div class="post_headerDescription">
+                        <p>Building Awesome Projects with Code 🖥️✨ </p>
+                    </div>
+                </div>
+                <img src="https://www.kirsle.net/creativity/articles/tabs-v-spaces.png" alt="Post Image">
+                <div class="post_footer">
+                    <div class="post_footer_left">
+                        <i class="far fa-comment"></i>
+                        <i class="fas fa-retweet"></i>
+                        <i class="far fa-heart"></i>
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <div class="post_footer_right">
+
+                        <i class="far fa-bookmark"></i>
+                        <i class="fas fa-share"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-        <!-- Feed ends -->
+    <!-- Feed ends -->
+
+    <!-- Widget starts -->
+
+    <div class="widgets">
+        <div class="widgets_input">
+            <span class="material-symbols-outlined">search</span>
+            <input type="text" placeholder="Search">
+        </div>
+
+        <div class="widgetContainer">
+            <h2>What's happening</h2>
+
+            <div class="trends">
+                <div class="trend">
+                    <div class="trend_header">
+                        <span>Trending in Technology</span>
+                        <i class="fas fa-ellipsis-h"></i>
+                    </div>
+                    <p>#CodeNewbie</p>
+                    <span>50.4K posts</span>
+                </div>
+
+                <div class="trend">
+                    <div class="trend_header">
+                        <span>Trending Worldwide</span>
+                        <i class="fas fa-ellipsis-h"></i>
+                    </div>
+                    <p>#X</p>
+                    <span>340K posts</span>
+                </div>
+
+                <div class="trend">
+                    <div class="trend_header">
+                        <span>Trending in Technology</span>
+                        <i class="fas fa-ellipsis-h"></i>
+                    </div>
+                    <p>#JavaScript</p>
+                    <span>120K posts</span>
+                </div>
+
+                <div class="trend">
+                    <div class="trend_header">
+                        <span>Trending in Technology</span>
+                        <i class="fas fa-ellipsis-h"></i>
+                    </div>
+                    <p>#100DaysOfCode</p>
+                    <span>80.1K posts</span>
+                </div>
+            </div>
+        </div>
+        <div class="widgetContainer">
+            <h2>Who to follow</h2>
+            <div class="follow_suggestions">
+                <div class="follow_suggestion">
+                    <img src="https://i.pinimg.com/736x/56/ef/1d/56ef1d2b1b6bbfdc24a3742baaebd559.jpg" alt="Profile">
+                    <div class="user_info">
+                        <strong>Jayesh Baranwal</strong>
+                        <span>@jayeshbCode_</span>
+                    </div>
+                    <button>Follow</button>
+                </div>
+                <div class="follow_suggestion">
+                    <img src="https://images.icon-icons.com/3685/PNG/512/github_logo_icon_229278.png" alt="Profile">
+                    <div class="user_info">
+                        <strong>Jayesh Baranwal</strong>
+                        <span>@jayeshbaranwal</span>
+                    </div>
+                    <button>Follow</button>
+                </div>
+            </div>
+        </div>
+        <div class="widgetContainer">
+            <h2>Today's News</h2>
+            <div class="latest_news">
+                <div class="news_item">
+                    <h3>Tech News Today</h3>
+                    <p>Latest updates in technology...</p>
+                </div>
+                <blockquote class="twitter-tweet">
+                    <p lang="en" dir="ltr">At dawn from the gateway to Mars, the launch of Starship’s second flight test
+                        <a href="https://t.co/ffKnsVKwG4">pic.twitter.com/ffKnsVKwG4</a>
+                    </p>&mdash; SpaceX (@SpaceX) <a
+                        href="https://twitter.com/SpaceX/status/1732824684683784516?ref_src=twsrc%5Etfw">December 7,
+                        2023</a>
+                </blockquote>
+                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+            </div>
+        </div>
+    </div>
+    <!-- Widget ends -->
 </body>
 
 </html>

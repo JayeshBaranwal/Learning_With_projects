@@ -4,11 +4,22 @@
     box-sizing: border-box;
 }
 
+html, body {
+    height: 100%;
+}
+
+html, body {
+    font-family: Arial, Helvetica, sans-serif;
+}
 body {
     --twitter-color: #000;
     --twitter-bgcolor: #111010;
     background-color: #000;
     color: #E1E3E4;
+    display: flex;
+    align-items: flex-start;
+    height: 100vh;
+    overflow: hidden; /* prevent page from scrolling; make columns scroll independently */
 }
 
 /* sidebar */
@@ -41,7 +52,7 @@ body {
     color: var(--twitter-color);
 } */
 
-.tweet_button {
+.post_button {
     /* background-color: var(--twitter-color); */
     width: 100%;
     color: black;
@@ -55,34 +66,91 @@ body {
     /* margin-left: 20px; */
 }
 
-body {
-    display: flex;
-    height: 100vh;
-    max-width: 1300px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0 10px;
-}
 
-.sidebar {
+
+/* .sidebar {
     border-right: 0.5px solid rgba(225,227,228,0.15);
     flex: 0.2;
     min-width: 250px;
     margin-top: 20px;
     padding-left: 20px;
     padding-right: 20px;
+} */
+
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-right: 0.5px solid rgba(225,227,228,0.15);
+    flex: 0.3;
+    min-width: 250px;
+    margin-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
+
+/* user profile at bottom of sidebar */
+.sidebarProfile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px;
+    border-radius: 999px;
+    cursor: pointer;
+    margin-top: auto; /* push to bottom */
+    width: calc(100% - 40px);
+    color: rgba(225,227,228,0.9);
+}
+
+.sidebarProfile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.sidebarProfile .profile_names {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+}
+
+.sidebarProfile .profile_names .name {
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.sidebarProfile .profile_names .handle {
+    font-size: 13px;
+    color: rgba(225,227,228,0.7);
+}
+
+.sidebarProfile .more {
+    margin-left: auto;
+    color: rgba(225,227,228,0.7);
+}
+
+/* hover state */
+.sidebarProfile:hover {
+    background-color: var(--twitter-bgcolor);
+}
+
 
 /* feed */
 
 .feed {
-    flex: 0.6;
+    flex: 0.6; /* keep your existing flex value */
+    overflow-y: auto;
+    max-height: 100vh;
+    -webkit-overflow-scrolling: touch;
+    padding-left: 16px; /* optional */
     border-right: 1px solid rgba(225,227,228,0.15);
     border-left: 0.5px solid rgba(225,227,228,0.15);
     /* border-bottom: 0.5px solid rgba(225,227,228,0.15); */
     margin-top: 20px;
     min-width: fit-content;
-    overflow-y: scroll;
     padding-left: 20px;
     padding-right: 20px;
 }
@@ -127,14 +195,14 @@ body {
 }
 
 /* tweet box */
-.tweet_box {
+.post_box {
     /* display: flex; */
     /* flex-direction: column; */
     padding: 16px;
     border-bottom: 1px solid rgba(225,227,228,0.15);
 }
 
-.tweet_box form {
+.post_box form {
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -147,20 +215,20 @@ body {
     /* vertical-align: middle; */
 }
 
-.tweet_box_input {
+.post_box_input {
     display: flex;
     gap: 10px;
     align-items: center;
     margin-bottom: 16px;
 }
 
-.tweet_box_input img {
+.post_box_input img {
     border-radius: 50%;
     width: 50px;
     height: 50px;
 }
 
-.tweet_box_input input {
+.post_box_input input {
     flex: 1;
     background-color: transparent;
     border: none;
@@ -170,7 +238,7 @@ body {
     /* min-height: 50px; */
 } 
 
-.tweet_box_footer {
+.post_box_footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -178,7 +246,7 @@ body {
     padding-left: 62px;
 }
 
-.tweet_box_icons {
+.post_box_icons {
     display: flex;
     align-items: center;
     gap: 12px;
@@ -186,17 +254,17 @@ body {
     color: rgba(225,227,228,0.7);
 }
 
-.tweet_box_icons i {
+.post_box_icons i {
     font-size: 20px;
     cursor: pointer;
     transition: color 120ms ease;
     color: #1DA1F2;
 }
 
-.tweet_box_icons i:hover {
+.post_box_icons i:hover {
     color: #1DA1F2;
 }
-.tweet_box .tweet_button {
+.post_box .post_button {
     /* background-color: #1DA1F2; */
     /* border: none;
     border-radius: 30px;
@@ -304,4 +372,224 @@ body {
 
 .post_footer i:hover {
     color: #1DA1F2;
+}
+
+/* widgets */
+
+/* .widgets {
+    flex: 0.3;
+    margin-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    min-width: 300px;
+}
+
+.widgets_input {
+    display: flex;
+    align-items: center;
+    background-color: var(--twitter-bgcolor);
+    padding: 10px 15px;
+    border-radius: 30px;
+    gap: 10px;
+    outline: none;
+}
+
+.widgetContainer {
+    margin-top: 15px;
+    padding: 20px;
+    background-color: var(--twitter-bgcolor);
+    border-radius: 20px;
+}
+
+.widgetContainer h2 {
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.twitter-timeline-wrapper {
+    min-height: 600px;
+    background-color: var(--twitter-bgcolor);
+}*/
+/* Make embedded timeline match dark theme  */
+/* .twitter-timeline {
+    background-color: var(--twitter-bgcolor) !important;
+} */
+
+/* Enhance widgets styling */
+.widgets {
+    flex: 0.3;
+    padding: 20px 20px;
+    margin-top: 20px;
+}
+
+.widgets_input {
+    display: flex;
+    align-items: center;
+    background-color: #000;
+    padding: 10px 15px;
+    border-radius: 999px;
+    margin-bottom: 20px;
+
+    border: 1px solid rgba(225,227,228,0.15);
+    transition: box-shadow 160ms ease, border-color 160ms ease;
+}
+
+.widgets_input input {
+    border: none;
+    background: transparent;
+    outline: none;
+    color: white;
+    font-size: 16px;
+    margin-left: 10px;
+    width: 100%;
+}
+.widgets_input .material-symbols-outlined,
+.widgets_input .fa-search {
+    color: #fff; /* ensure icon is visible */
+    font-size: 20px;
+}
+
+.widgets_input input {
+    border: none;
+    background: transparent;
+    outline: none;
+    color: #fff;
+    font-size: 16px;
+    margin-left: 10px;
+    width: 100%;
+}
+
+/* placeholder color */
+.widgets_input input::placeholder {
+    color: rgba(255,255,255,0.7);
+}
+
+/* focus state */
+.widgets_input:focus-within {
+    box-shadow: 0 0 0 4px rgba(29,161,242,0.12); /* subtle blue glow */
+    border-color: rgba(225,227,228,0.15);
+}
+
+
+.widgetContainer {
+    background-color: #000;
+    border: 1px solid rgba(225,227,228,0.15);
+    border-radius: 16px;
+    padding: 15px;
+    margin-bottom: 20px;
+    transition: box-shadow 160ms ease, border-color 160ms ease;
+}
+
+.widgetContainer:hover {
+    box-shadow: 0 0 0 6px rgba(29,161,242,0.06);
+    border-color: rgba(225,227,228,0.3);
+}
+
+/* headings and text tuned for dark box */
+.widgetContainer h2 {
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 15px;
+    color: #E1E3E4;
+}
+
+.trends .trend {
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.trend_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: rgba(225,227,228,0.65);
+    font-size: 13px;
+}
+
+.trend p {
+    font-weight: 700;
+    font-size: 15px;
+    margin: 5px 0;
+    color: #E1E3E4;
+}
+
+.trend span {
+    color: rgba(225,227,228,0.65);
+    font-size: 13px;
+}
+
+/* Follow suggestions */
+.follow_suggestion {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.follow_suggestion img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+
+.user_info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.user_info strong {
+    font-size: 14px;
+    color: #E1E3E4;
+}
+
+.user_info span {
+    color: rgba(225,227,228,0.65);
+    font-size: 13px;
+}
+
+/* .follow_suggestion button {
+    background-color: #E9EDEE;
+    color: black;
+    border: none;
+    border-radius: 999px;
+    padding: 7px 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.follow_suggestion button:hover {
+    background-color: #ebebeb;
+} */
+
+.follow_suggestion button {
+    background-color: #E9EDEE;;
+    color: black;
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 999px;
+    padding: 7px 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.follow_suggestion button:hover {
+    background-color: #cdcbd5;
+}
+
+/* Optional: nicer thin scrollbars */
+.feed::-webkit-scrollbar,
+.sidebar::-webkit-scrollbar,
+.widgets::-webkit-scrollbar {
+    width: 8px;
+}
+.feed::-webkit-scrollbar-thumb,
+.sidebar::-webkit-scrollbar-thumb,
+.widgets::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.06);
+    border-radius: 999px;
 }
